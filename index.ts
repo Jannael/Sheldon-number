@@ -14,5 +14,5 @@
 
 // Function to check if a number is prime if so then returns the position of the number in the prime numbers otherwise returns null
 function isPrime(num: number): number | null {
-  return 0
+	return 0
 }
