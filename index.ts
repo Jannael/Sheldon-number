@@ -46,10 +46,12 @@ export function isSheldonNumber(num: number) {
 	const primePosition = isPrime(num)
 	if (!primePosition) return
 
+	// both mirror and main must be prime numbers
 	const primeMirror = Number(getMirror(num))
 	const mirrorPosition = isPrime(primeMirror)
 	if (!mirrorPosition) return
 
+	// prime mirror position, and the mirror of the mirror prime mirror position must be the same
 	if (mirrorPosition.toString() !== getMirror(primePosition)) return
 
 	let productOfPrimeDigits = 1
@@ -58,7 +60,10 @@ export function isSheldonNumber(num: number) {
 		.split('')
 		.forEach((v) => (productOfPrimeDigits *= Number(v)))
 
+	// the product of the digits in the main number must the same as the position of the same number
 	if (productOfPrimeDigits !== primePosition) return
+
+	//
 }
 
 export function getMirror(num: number) {
