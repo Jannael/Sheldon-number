@@ -63,11 +63,11 @@ export function isSheldonNumber(num: number) {
 	// the product of the digits in the main number must the same as the position of the same number
 	if (productOfPrimeDigits !== primePosition) return
 
-	//
+	// the main number in binary must be a palindrome
+	const binary = num.toString(2)
+	return binary === binary.split('').reverse().join('')
 }
 
 export function getMirror(num: number) {
 	return num.toString().split('').reverse().join('')
 }
-
-isSheldonNumber(73)
