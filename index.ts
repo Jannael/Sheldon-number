@@ -12,7 +12,7 @@
 // 4. 21 is the product of multiply 7 * 3
 // 5. 73 is a palindrome number in binary -> 1001001
 
-export function generateCriba(limit: number) {
+export function generateCriba(limit: number): number[] {
 	// we create an array with the length of the limit + 1, and fill it with true values
 	// the index of the array represents the number, and the value represents if it's prime or not
 	let sieve = Array.from({ length: limit + 1 }, () => true)
@@ -31,7 +31,7 @@ export function generateCriba(limit: number) {
 		if (isPrime) return index
 	})
 
-	return primes.filter(Boolean)
+	return primes.filter(Boolean) as number[]
 }
 
 const LIMIT = 10_000_000
@@ -72,9 +72,7 @@ export function getMirror(num: number) {
 	return num.toString().split('').reverse().join('')
 }
 
-const sheldonNumbers = []
-for (let i = 0; i <= LIMIT; i++) {
-	if (isSheldonNumber(i)) sheldonNumbers.push(i)
-}
+const sheldonNumbers: number[] = []
+criba.forEach((i) => isSheldonNumber(i) && sheldonNumbers.push(i))
 
 console.log(sheldonNumbers)
