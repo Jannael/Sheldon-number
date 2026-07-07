@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "lineWidth": 150,
+  "indentStyle": "tab",
+  "indentWidth": 2,
+  "semicolons": false,
+  "singleQuote": true,
+  "useTabs": true
+}
