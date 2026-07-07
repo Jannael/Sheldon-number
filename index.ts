@@ -12,7 +12,24 @@
 // 4. 21 is the product of multiply 7 * 3
 // 5. 73 is a palindrome number in binary -> 1001001
 
-// Function to check if a number is prime if so then returns the position of the number in the prime numbers otherwise returns null
-function isPrime(num: number): number | null {
-	return 0
+export function generateCriba(limit: number) {
+	// we create an array with the length of the limit + 1, and fill it with true values
+	// the index of the array represents the number, and the value represents if it's prime or not
+	let sieve = Array.from({ length: limit + 1 }, () => true)
+	sieve[0] = sieve[1] = false // 0 and 1 are not prime numbers
+
+	// algorithm => https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+	for (let i = 2; i * i <= limit; i++) {
+		if (sieve[i]) {
+			for (let j = i * i; j <= limit; j += i) {
+				sieve[j] = false
+			}
+		}
+	}
+
+	const primes = sieve.map((isPrime, index) => {
+		if (isPrime) return index
+	})
+
+	return primes.filter(Boolean)
 }
