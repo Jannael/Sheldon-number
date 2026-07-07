@@ -41,3 +41,28 @@ export function isPrime(num: number) {
 	const index = criba.indexOf(num)
 	return index !== -1 ? index + 1 : null
 }
+
+export function isSheldonNumber(num: number) {
+	const primePosition = isPrime(num)
+	if (!primePosition) return
+
+	const primeMirror = Number(getMirror(num))
+	const mirrorPosition = isPrime(primeMirror)
+	if (!mirrorPosition) return
+
+	if (mirrorPosition.toString() !== getMirror(primePosition)) return
+
+	let productOfPrimeDigits = 1
+	num
+		.toString()
+		.split('')
+		.forEach((v) => (productOfPrimeDigits *= Number(v)))
+
+	if (productOfPrimeDigits !== primePosition) return
+}
+
+export function getMirror(num: number) {
+	return num.toString().split('').reverse().join('')
+}
+
+isSheldonNumber(73)
