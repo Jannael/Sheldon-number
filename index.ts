@@ -34,7 +34,7 @@ export function generateCriba(limit: number) {
 	return primes.filter(Boolean)
 }
 
-const LIMIT = 1_000_000
+const LIMIT = 10_000_000
 const criba = generateCriba(LIMIT)
 
 export function isPrime(num: number) {
