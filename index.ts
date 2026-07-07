@@ -33,3 +33,11 @@ export function generateCriba(limit: number) {
 
 	return primes.filter(Boolean)
 }
+
+const LIMIT = 1_000_000
+const criba = generateCriba(LIMIT)
+
+export function isPrime(num: number) {
+	const index = criba.indexOf(num)
+	return index !== -1 ? index + 1 : null
+}
