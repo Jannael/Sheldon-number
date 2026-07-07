@@ -71,3 +71,10 @@ export function isSheldonNumber(num: number) {
 export function getMirror(num: number) {
 	return num.toString().split('').reverse().join('')
 }
+
+const sheldonNumbers = []
+for (let i = 0; i <= LIMIT; i++) {
+	if (isSheldonNumber(i)) sheldonNumbers.push(i)
+}
+
+console.log(sheldonNumbers)
